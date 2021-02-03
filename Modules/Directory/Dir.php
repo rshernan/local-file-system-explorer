@@ -31,7 +31,7 @@ class Dir
 
         echo "<h3>ROOT FOLDER WITH FOLDERS AND FILES AND RECURSIVE WITH ACTIVES FOLDER</h3>";
         $rootFolder3 = new Folder(dirname(ROOT_PATH), 'root', true, true, true);
-        $rootFolder3->setActiveFolder('/opt/lampp/htdocs/PHP-FileSystem/root/folder1/folder2/folder3');
+        $rootFolder3->setActiveFolder('/opt/lampp/htdocs/PHP-FileSystem/root/folder1/folder2/folder3/folder4');
         $rootFolder3->print();
         $rootFolder3->setActiveFolder('/opt/lampp/htdocs/PHP-FileSystem/root/folder1/folder2');
         $rootFolder3->print();
