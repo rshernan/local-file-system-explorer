@@ -17,15 +17,20 @@
         <section class="folderSideBar__section">
             <?php
             ?>
-            <div class="folderList__ul">
-                <div class="folderList__li" style="padding-left: 5px;">
+            <div class="folderListContainer__div">
+                <div class="folderList__div" style="padding-left: 5px;">
                     Lorem.
-                    <div class="folderList__li folderList__li--hidden">Lorem.</div>
+                    <div class="folderList__div folderList__div--hidden">
+                        Lorem.
+                        <div class="folderList__div folderList__div--hidden">
+                            Lorem.
+                        </div>
+                    </div>
                 </div>
-                <div class="folderList__li">Voluptates.</div>
-                <div class="folderList__li">Quasi?</div>
-                <div class="folderList__li">Nam?</div>
-                <div class="folderList__li">Ullam.</div>
+                <div class="folderList__div">Voluptates.</div>
+                <div class="folderList__div">Quasi?</div>
+                <div class="folderList__div">Nam?</div>
+                <div class="folderList__div">Ullam.</div>
             </div>
         </section>
         <section class="actionSideBar__section">

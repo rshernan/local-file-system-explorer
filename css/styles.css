@@ -29,13 +29,13 @@ main{
     left: 0;
 }
 
-.folderList__ul{
+.folderListContainer__div{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.folderList__li{
+.folderList__div{
     width:90%;
     height: 50px;
     box-shadow: inset 0 0 5px #ccc;
