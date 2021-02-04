@@ -1,6 +1,4 @@
 <?php
-include_once('./Modules/Directory/Dir.php');
-include_once('./Modules/Directory/Folder.php');
 
 function getNav()
 {

@@ -1,3 +1,9 @@
+<?php
+include_once('./Templates/sidenav.php');
+include_once('./Modules/Directory/Dir.php');
+include_once('./Modules/Directory/Folder.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +30,6 @@
     <main>
         <section class="folderSideBar__section">
             <?php
-            include_once("./sidenav.php");
             echo getNav();
             ?>
         </section>
