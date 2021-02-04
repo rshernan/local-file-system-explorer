@@ -1,1 +1,0 @@
-This is root folder where data must be processed

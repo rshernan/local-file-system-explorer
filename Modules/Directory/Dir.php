@@ -18,6 +18,14 @@ class Dir
         mkdir($path);
     }
 
+    public function getRoot(
+        bool $addFolders = false,
+        bool $addFiles = false,
+        bool $recursive = false
+    ) {
+        return new Folder(dirname(ROOT_PATH), 'root', $addFolders, $addFiles, $recursive);
+    }
+
     public function scanDir()
     {
         echo '<pre>';
