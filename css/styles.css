@@ -1,0 +1,128 @@
+@import url('./_reset.css');
+@import url('./_variables.css');
+
+*{
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.folderSideBar__section{
+    position: fixed;
+    top:80px;
+    left:-100%;
+    width:100vw;
+    height: calc(100VH - 80px);
+    transition: left 1s linear;
+    background-color: white;
+}
+
+.folderSideBar__section--unfold{
+    left: 0;
+}
+
+.folderList__ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.folderList__li{
+    width:90%;
+    height: 50px;
+    box-shadow: inset 0 0 5px #ccc;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.folderList__li--hidden{
+    display: none;
+}
+
+.actionSideBar__section{
+    position: fixed;
+    top:80px;
+    right:100%;
+    width:100vw;
+    height: 240px;
+    transition: right 1s linear;
+    background-color: white;
+}
+
+.actionSideBar__section--unfold{
+    right: 0%;
+}
+
+.actionList__ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.actionList__li{
+    width: 90%;
+    height: 50px;
+    box-shadow: inset 0 0 5px #ccc;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__header{
+    height:80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.menu__folders{
+    width: 100px;
+    height:50px;
+}
+
+.menu__searchBar{
+    width: 50vw;
+    height: 50px;
+    box-shadow: inset 0 0 5px #ccc;
+    padding: 5px;
+}
+
+.menu__actions{
+    width: 100px;
+    height: 50px;
+}
+
+.card__div{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    padding: 10px 20px;
+    box-shadow: inset 0 0 5px #ccc;
+}
+
+.card__img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.cardInfo__div{
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
