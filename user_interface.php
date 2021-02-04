@@ -10,6 +10,12 @@
 </head>
 
 <body>
+    <section class="modal__section">
+        <form action="./modules/externalManagers/upload_file.php" method="POST">
+            <input type="file" name="uploader" multiple>
+            <input type="submit" value="Upload">
+        </form>
+    </section>
     <header class="menu__header">
         <button class="menu__folders">folders</button>
         <input type="text" name="searchBar" id="searchBar" class="menu__searchBar">

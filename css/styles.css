@@ -9,6 +9,10 @@
 	font-size: 20px;
 }
 
+.modal__section{
+    display: none;
+}
+
 .menu__header {
 	height: 80px;
 	width: 100%;
@@ -42,8 +46,10 @@ main {
 }
 
 .folderSideBar__section {
+    position: fixed;
     width: 0;
     overflow: hidden;
+    top: 80px;
 	height: calc(100vh - 80px);
 	transition: width 0.3s linear;
 	background-color: white;
@@ -93,7 +99,7 @@ main {
 .actionSideBar__section {
 	position: fixed;
 	top: 80px;
-	right: 100%;
+	right: -100%;
 	width: 100vw;
 	height: 240px;
 	transition: right 1s linear;
