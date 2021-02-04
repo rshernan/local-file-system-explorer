@@ -89,8 +89,7 @@ main {
 }
 
 .unfoldable .folderList__button {
-	cursor: default;
-	background-color: white;
+	visibility: hidden;
 }
 
 .folderList__button {
