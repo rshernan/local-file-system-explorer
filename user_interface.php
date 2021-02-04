@@ -18,10 +18,13 @@
             <?php
             ?>
             <ul class="folderList__ul">
-                <li class="folderList__li"></li>
-                <li class="folderList__li"></li>
-                <li class="folderList__li"></li>
-                <li class="folderList__li"></li>
+                <li class="folderList__li">
+                    Lorem.
+                    <li class="folderList__li folderList__li--hidden">Lorem.</li>
+                </li>
+                <li class="folderList__li">Lorem.</li>
+                <li class="folderList__li">Lorem.</li>
+                <li class="folderList__li">Lorem.</li>
             </ul>
         </section>
         <section class="actionSideBar__section">
