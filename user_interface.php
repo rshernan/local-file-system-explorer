@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/main.js"></script>
 </head>
+
 <body>
     <header class="menu__header">
         <button class="menu__folders">folders</button>
@@ -19,12 +21,58 @@
             ?>
             <ul class="folderList__ul">
                 <li class="folderList__li">
-                    Lorem.
-                    <li class="folderList__li folderList__li--hidden">Lorem.</li>
+                    <div class="folderList__li--selector">
+                        <button class="folderList__button"></button>
+                        <span class="folderList--title">Lorem</span>
+                    </div>
+                    <ul class="folderList__ul hidden">
+                        <li class="folderList__li">
+                            <div class="folderList__li--selector">
+                                <button class="folderList__button"></button>
+                                <span class="folderList--title">Ipsa</span>
+                            </div>
+                            <ul class="folderList__ul hidden">
+                                <li class="folderList__li">
+                                    <div class="folderList__li--selector">
+                                        <button class="folderList__button"></button>
+                                        <span class="folderList--title">Sum</span>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="folderList__li">
+                            <div class="folderList__li--selector">
+                                <button class="folderList__button"></button>
+                                <span class="folderList--title">Ipsa</span>
+                            </div>
+                        </li>
+                        <li class="folderList__li">
+                            <div class="folderList__li--selector">
+                                <button class="folderList__button"></button>
+                                <span class="folderList--title">Ipsa</span>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
-                <li class="folderList__li">Lorem.</li>
-                <li class="folderList__li">Lorem.</li>
-                <li class="folderList__li">Lorem.</li>
+                <li class="folderList__li">
+                    <div class="folderList__li--selector">
+                        <button class="folderList__button"></button>
+                        <span class="folderList--title">Lorem</span>
+                    </div>
+                </li>
+                <li class="folderList__li">
+                    <div class="folderList__li--selector">
+                        <button class="folderList__button"></button>
+                        <span class="folderList--title">Lorem</span>
+                    </div>
+                </li>
+                <li class="folderList__li">
+                    <div class="folderList__li--selector">
+                        <button class="folderList__button"></button>
+                        <span class="folderList--title">Lorem</span>
+                    </div>
+                </li>
             </ul>
         </section>
         <section class="actionSideBar__section">
@@ -53,8 +101,9 @@
                 <p src="cardInfo__size">size</p>
             </div>
         </div>
-    <?php
-    ?>
+        <?php
+        ?>
     </main>
 </body>
+
 </html>
