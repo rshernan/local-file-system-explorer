@@ -23,6 +23,7 @@
 }
 
 .menu__folders {
+	cursor: pointer;
 	width: 100px;
 	height: 50px;
 }
@@ -35,6 +36,7 @@
 }
 
 .menu__actions {
+	cursor: pointer;
 	width: 100px;
 	height: 50px;
 }
@@ -86,10 +88,15 @@ main {
     cursor: pointer;
 }
 
+.unfoldable .folderList__button {
+	visibility: hidden;
+}
+
 .folderList__button {
     width: 20px;
     height: 20px;
-    background-color: aquamarine;
+	background-color: black;
+	border-radius: 50%;
 }
 
 .hidden {
