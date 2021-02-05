@@ -30,6 +30,6 @@ function createNavItem(Folder $folder)
             <a href='?path=" . urlencode($folder->getRelativePath()) . "' class='folderList--title'>" . $folder->getName() . "</a>
         </div>"
         . ($folder->folders ?
-            createNavItems($folder->folders, !$folder->active) : "")
+            createNavItems($folder->folders, !$folder->active || isset($_POST['search'])) : "")
         . "</li>";
 }

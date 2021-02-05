@@ -16,6 +16,23 @@ class Folder extends Element
         }
     }
 
+    public function search(string $regex) {
+        $array = array();
+        foreach ($this->folders as $item) {
+            $inner = $item->search($regex);
+            if(preg_match($regex, $item->getName())) {
+                array_push($array, $item);
+            }
+            $array = array_merge($array, $inner);
+        }
+        foreach ($this->files as $item) {
+            if(preg_match($regex, $item->getName())) {
+                array_push($array, $item);
+            }
+        }
+        return $array;
+    }
+
     public function setActiveFolder(string $path)
     {
         $isActivePath = false;
