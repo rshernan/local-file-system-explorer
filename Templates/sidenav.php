@@ -2,11 +2,7 @@
 
 function getNav()
 {
-    $start = microtime(true);
     $rootFolder = new Folder(ROOT_PATH, true, false, true);
-    echo "Mem peak usage: " . (memory_get_peak_usage(true) / 1024 / 1024) . " MiB\n";
-    echo "Completed in: ", microtime(true) - $start, " seconds\n";
-
     $rootFolder->setActiveFolder(ROOT_PATH . $_GET['path']);
 
     return createNavItems($rootFolder->folders, false);
