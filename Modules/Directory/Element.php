@@ -5,14 +5,15 @@ abstract class Element
     public function __construct(
         string $path = ''
     ) {
-        //$this->parentPath = dirname($path);
-        //$this->name = basename($path);
         $this->path = $path;
-        //$this->relativePath = str_replace(ROOT_PATH, "", $path);
     }
 
     public function getName() {
         return basename($this->path);
+    }
+
+    public function getParentPath() {
+        return dirname($this->path);
     }
 
     public function getRelativePath() {

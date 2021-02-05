@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 
-define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHP-FileSystem/root');
+define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHP-FileSystem/root_medium');
 
 include_once('./Modules/Directory/Dir.php');
 include_once('./Modules/Directory/Element.php');
@@ -31,7 +31,9 @@ include_once('./Templates/main.php');
     </section>
     <header class="menu__header">
         <button class="menu__folders">folders</button>
-        <input type="text" name="searchBar" id="searchBar" class="menu__searchBar">
+        <form action="?path=<?php echo urlencode($_GET['path']) ?>" method="POST">
+            <input value="<?php echo $_POST['search'] ?>" type="text" name="search" id="searchBar" class="menu__searchBar">
+        </form>
         <button class="menu__actions">actions</button>
     </header>
     <main>

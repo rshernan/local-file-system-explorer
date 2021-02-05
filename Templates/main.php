@@ -2,20 +2,22 @@
 
 function getMainItems()
 {
-    $folder = new Folder(ROOT_PATH . $_GET['path']);
-    return createMainItems($folder);
+    $folder = new Folder(ROOT_PATH . $_GET['path'], true, true, isset($_POST['search']));
+
+    $elements = isset($_POST['search']) ?
+        $folder->search("/".$_POST['search']."/") :
+        array_merge($folder->folders, $folder->files);
+
+    return createElementCards($elements);
 }
 
-function createMainItems(Folder $folder)
+function createElementCards(array $elements)
 {
-    $mainItems = "";
-    foreach ($folder->folders as $element) {
-        $mainItems .= createElementCard($element);
+    $result = "";
+    foreach($elements as $element) {
+        $result .= createElementCard($element);
     }
-    foreach ($folder->files as $element) {
-        $mainItems .= createElementCard($element);
-    }
-    return $mainItems;
+    return $result;
 }
 
 function createElementCard(Element $element)
