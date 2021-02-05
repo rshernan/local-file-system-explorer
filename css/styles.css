@@ -47,10 +47,17 @@ main {
 	row-gap: 10px;
 }
 
+.results__section {
+}
+
+.cardInfo__div {
+}
+
 .folderSideBar__section {
     position: fixed;
     width: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     top: 80px;
 	height: calc(100vh - 80px);
 	transition: width 0.3s linear;
@@ -69,8 +76,9 @@ main {
 }
 
 .folderList__li {
+	white-space: nowrap;
 	padding: 4px;
-    box-shadow: inset 0 0 5px #ccc;
+	box-shadow: inset 0 0 5px #ccc;
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -85,7 +93,7 @@ main {
 
 .folderList__li--selector > * {
     padding: 10px;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .unfoldable .folderList__button {

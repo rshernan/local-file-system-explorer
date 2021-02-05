@@ -2,12 +2,13 @@
 
 function getNav()
 {
-    $dir = new Dir();
-    $rootFolder = $dir->getRoot(true, false, true);
+    $rootFolder = new Folder(ROOT_PATH, true, false, true);
+    $rootFolder->setActiveFolder(ROOT_PATH . $_GET['path']);
+
     return createNavItems($rootFolder->folders, false);
 }
 
-function createNavItems(array $folders, bool $hidden)
+function createNavItems(array $folders, $hidden)
 {
     $ul = "<ul class='folderList__ul" . ($hidden ? " hidden" : "") . "'>";
     foreach ($folders as $folder) {
@@ -26,9 +27,9 @@ function createNavItem(Folder $folder)
         . "'>
         <div class='folderList__li--selector'>
             <button class='folderList__button'></button>
-            <span class='folderList--title'>$folder->name</span>
+            <a href='?path=" . urlencode($folder->getRelativePath()) . "' class='folderList--title'>" . $folder->getName() . "</a>
         </div>"
         . ($folder->folders ?
-            createNavItems($folder->folders, true) : "")
+            createNavItems($folder->folders, !$folder->active) : "")
         . "</li>";
 }
