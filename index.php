@@ -1,7 +1,14 @@
 <?php
-include_once('./Templates/sidenav.php');
+error_reporting(E_ALL);
+
+define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHP-FileSystem/root');
+
 include_once('./Modules/Directory/Dir.php');
+include_once('./Modules/Directory/Element.php');
+include_once('./Modules/Directory/File.php');
 include_once('./Modules/Directory/Folder.php');
+include_once('./Templates/sidenav.php');
+include_once('./Templates/main.php');
 ?>
 
 <!DOCTYPE html>
@@ -41,26 +48,11 @@ include_once('./Modules/Directory/Folder.php');
                 <li class="actionList__li">Disk Space</li>
             </ul>
         </section>
-        <div class="card__div">
-            <img src="./images/placeholder.jpg" alt="imagen" class="card__img">
-            <div class="cardInfo__div">
-                <p src="cardInfo__title">Title</p>
-                <p src="cardInfo__type">Type</p>
-                <p src="cardInfo__time">Time</p>
-                <p src="cardInfo__size">size</p>
-            </div>
-        </div>
-        <div class="card__div">
-            <img src="./images/placeholder.jpg" alt="imagen" class="card__img">
-            <div class="cardInfo__div">
-                <p src="cardInfo__title">Title</p>
-                <p src="cardInfo__type">Type</p>
-                <p src="cardInfo__time">Time</p>
-                <p src="cardInfo__size">size</p>
-            </div>
-        </div>
-        <?php
-        ?>
+        <section class="results__section">
+            <?php
+            echo getMainItems();
+            ?>
+        </section>
     </main>
 </body>
 
