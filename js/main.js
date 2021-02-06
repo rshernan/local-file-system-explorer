@@ -1,4 +1,6 @@
-setTimeout(function(){
+
+
+window.addEventListener("load",function(){
     const folderButton = document.querySelector(".menu__folders");
     folderButton.addEventListener("click", function(){
         document.querySelector(".folderSideBar__section").classList.toggle("folderSideBar__section--unfold");
@@ -17,11 +19,13 @@ setTimeout(function(){
                 innerList.classList.toggle('hidden')
             }
         })
-        navListItem.querySelector(".folderList--title").addEventListener("click", function() {
-            document.querySelector(".folderSideBar__section").classList.toggle("folderSideBar__section--unfold");
-            //Update main content
-        })
     })
-},0);
+
+    const searchInput = document.querySelector("#searchBar");
+    searchInput.addEventListener("input", function() {
+        clearTimeout(inputTimeout)
+        inputTimeout = setTimeout(() => this.parentElement.submit(), 600)
+    })
+});
 
 
