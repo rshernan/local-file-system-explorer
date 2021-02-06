@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <section class="modal__section">
-        <form action="./modules/externalManagers/upload_file.php" method="POST">
+    <section class="modal__section hidden">
+        <form action="./modules/externalManagers/upload_file.php" method="POST" enctype="multipart/form-data" class="modal__form">
             <input type="file" name="uploader" multiple>
             <input type="submit" value="Upload">
         </form>
