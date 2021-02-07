@@ -1,13 +1,15 @@
 <?php
-$destination_path = ROOT_PATH . "//local-file-system-explorer//root"; //$_POST['destination_path'];
+include_once('../Constants/Constants.php');
 
-print_r($_SERVER['DOCUMENT_ROOT']);
+$destination_path = ROOT_PATH . $_GET['path'];
 
 $received_file = $_FILES["uploader"];
 
-if (move_uploaded_file($received_file['tmp_name'], $destination_path . $received_file['name'])) {
+print_r("print " . $destination_path . $received_file['name']);
+
+if (move_uploaded_file($received_file['tmp_name'], $destination_path . "/" . $received_file['name'])) {
     echo '<script type="text/javascript">
         alert("Archivo Guardado");
-        window.location.href="' . $_SERVER['DOCUMENT_ROOT'] . '//local-file-system-explorer//user_interface.php";
+        window.location.href="' . '../../index.php?path=' . $_GET['path'] . '";
         </script>';
 }

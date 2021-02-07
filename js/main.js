@@ -1,4 +1,4 @@
-
+let inputTimeout;
 
 window.addEventListener("load",function(){
     const folderButton = document.querySelector(".menu__folders");
@@ -25,6 +25,18 @@ window.addEventListener("load",function(){
     searchInput.addEventListener("input", function() {
         clearTimeout(inputTimeout)
         inputTimeout = setTimeout(() => this.parentElement.submit(), 600)
+    })
+
+    const actionUpload = document.querySelector("#upload");
+    actionUpload.addEventListener("click", function(){
+        document.querySelector(".modal__section").classList.toggle("hidden");
+        document.querySelector(".upload").classList.toggle("hidden");
+    })
+
+    const actionNewFolder = document.querySelector("#newFolder");
+    actionNewFolder.addEventListener("click", function(){
+        document.querySelector(".modal__section").classList.toggle("hidden");
+        document.querySelector(".newFolder").classList.toggle("hidden");
     })
 });
 
