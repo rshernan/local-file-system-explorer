@@ -37,6 +37,18 @@ window.addEventListener("load",function(){
             })
         }, 600)
     })
+
+    const actionUpload = document.querySelector("#upload");
+    actionUpload.addEventListener("click", function(){
+        document.querySelector(".modal__section").classList.toggle("hidden");
+        document.querySelector(".upload").classList.toggle("hidden");
+    })
+
+    const actionNewFolder = document.querySelector("#newFolder");
+    actionNewFolder.addEventListener("click", function(){
+        document.querySelector(".modal__section").classList.toggle("hidden");
+        document.querySelector(".newFolder").classList.toggle("hidden");
+    })
 });
 
 function unfoldInnerList(parentList) {
