@@ -1,10 +1,9 @@
 <?php
 
-include_once('./Modules/Constants/Constants.php');
-include_once('./Modules/Directory/Element.php');
-include_once('./Modules/Directory/Dir.php');
-include_once('./Modules/Directory/File.php');
-include_once('./Modules/Directory/Folder.php');
+require_once('./Modules/Constants/Constants.php');
+require_once('./Modules/Directory/Element.php');
+require_once('./Modules/Directory/File.php');
+require_once('./Modules/Directory/Folder.php');
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +31,13 @@ include_once('./Modules/Directory/Folder.php');
     }
     ?>
     <section class="modal__section hidden">
-        <form action="./modules/externalManagers/upload_file.php?path=<?php echo urlencode($_GET['path']) ?>" method="post" class="modal__form upload hidden" enctype="multipart/form-data">
+        <form action="./modules/externalManagers/upload_file.php?path=<?php echo (isset($_GET['path']) ? urlencode($_GET['path']) : "") ?>" method="post" class="modal__form upload hidden" enctype="multipart/form-data">
             <input type="hidden" name="MAX_FILE_SIZE" value="300000">
             <input type="file" name="uploader" multiple>
             <input type="submit" value="Upload">
         </form>
-        <form action="?path=<?php echo urlencode($_GET['path']) ?>" method="post" class="modal__form newFolder hidden" enctype="multipart/form-data">
-            <input value="<?php echo $_POST['newFolder'] ?>" type="text" name="newFolder" class="modal__inputText">
+        <form action="?path=<?php echo (isset($_GET['path']) ? urlencode($_GET['path']) : "") ?>" method="post" class="modal__form newFolder hidden" enctype="multipart/form-data">
+            <input value="<?php echo isset($_POST['newFolder']) ? $_POST['newFolder'] : "" ?>" type="text" name="newFolder" class="modal__inputText">
             <input type="submit" value="Create">
         </form>
     </section>
@@ -46,7 +45,7 @@ include_once('./Modules/Directory/Folder.php');
     <header class="menu__header">
         <button class="menu__folders">folders</button>
         <form>
-            <input value="<?php echo $_POST['search'] ?>" type="text" name="search" id="searchBar" class="menu__searchBar">
+            <input value="<?php echo isset($_POST['search']) ? $_POST['search'] : "" ?>" type="text" name="search" id="searchBar" class="menu__searchBar">
         </form>
         <button class="menu__actions">actions</button>
     </header>
@@ -66,7 +65,7 @@ include_once('./Modules/Directory/Folder.php');
         </section>
         <section class="results__section">
             <?php
-            include_once('./Templates/cards.php');
+            require_once('./Templates/cards.php');
             ?>
         </section>
     </main>

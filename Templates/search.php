@@ -1,19 +1,19 @@
 <?php
 
-include_once('../Modules/Constants/Constants.php');
-include_once('../Modules/Directory/Element.php');
-include_once('../Modules/Directory/File.php');
-include_once('../Modules/Directory/Folder.php');
-include_once('../Modules/Directory/Finder.php');
+require_once('../Modules/Constants/Constants.php');
+require_once('../Modules/Directory/Element.php');
+require_once('../Modules/Directory/File.php');
+require_once('../Modules/Directory/Folder.php');
+require_once('../Modules/Directory/Finder.php');
 
 $finder = new Finder(ROOT_PATH . $_GET['path']);
 
-echo createElementCards($finder->search("/".$_POST['search']."/"));
+echo createElementCards($finder->search("/" . $_POST['search'] . "/"));
 
 function createElementCards(array $elements)
 {
     $result = "";
-    foreach($elements as $element) {
+    foreach ($elements as $element) {
         $result .= createElementCard($element);
     }
     return $result;
@@ -22,7 +22,7 @@ function createElementCards(array $elements)
 function createElementCard(Element $element)
 {
     return "<div class='card__div'>
-        <p><a href='download.php?path=".urlencode($element->getServerPath())."' target='_blank'>download</a></p>
+        <p><a href='download.php?path=" . urlencode($element->getServerPath()) . "' target='_blank'>download</a></p>
         <a href='?path=" . $element->getRelativePath() . "' class='folderList--title'>
         " . $element->getImageElement() . "
         </a>
