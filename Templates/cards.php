@@ -24,6 +24,7 @@ function createElementCards(array $elements)
 function createElementCard(Element $element)
 {
     return "<div class='card__div'>
+        <p><a href='download.php?path=".urlencode($element->getServerPath())."' target='_blank'>download</a></p>
         <a href='?path=" . $element->getRelativePath() . "' class='folderList--title'>
         " . $element->getImageElement() . "
         </a>

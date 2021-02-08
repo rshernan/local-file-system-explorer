@@ -1,9 +1,10 @@
 <?php
 
-define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHPFileSystem/root_large');
+define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHPFileSystem/root');
 
 include_once('./Modules/Constants/Constants.php');
 include_once('./Modules/Directory/Element.php');
+include_once('./Modules/Directory/Dir.php');
 include_once('./Modules/Directory/File.php');
 include_once('./Modules/Directory/Folder.php');
 ?>
