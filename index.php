@@ -7,8 +7,6 @@ include_once('./Modules/Directory/Element.php');
 include_once('./Modules/Directory/Dir.php');
 include_once('./Modules/Directory/File.php');
 include_once('./Modules/Directory/Folder.php');
-include_once('./Templates/sidenav.php');
-include_once('./Templates/main.php');
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +18,7 @@ include_once('./Templates/main.php');
     <title>Document</title>
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -48,7 +47,7 @@ include_once('./Templates/main.php');
 
     <header class="menu__header">
         <button class="menu__folders">folders</button>
-        <form action="?path=<?php echo urlencode($_GET['path']) ?>" method="POST">
+        <form>
             <input value="<?php echo $_POST['search'] ?>" type="text" name="search" id="searchBar" class="menu__searchBar">
         </form>
         <button class="menu__actions">actions</button>
@@ -56,7 +55,7 @@ include_once('./Templates/main.php');
     <main>
         <section class="folderSideBar__section">
             <?php
-            echo getNav();
+            include_once('./Templates/folders.php');
             ?>
         </section>
         <section class="actionSideBar__section">
@@ -69,7 +68,7 @@ include_once('./Templates/main.php');
         </section>
         <section class="results__section">
             <?php
-            echo getMainItems();
+            include_once('./Templates/cards.php');
             ?>
         </section>
     </main>
