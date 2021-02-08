@@ -2,6 +2,7 @@
 
 define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHPFileSystem/root');
 
+include_once('./Modules/Constants/Constants.php');
 include_once('./Modules/Directory/Element.php');
 include_once('./Modules/Directory/Dir.php');
 include_once('./Modules/Directory/File.php');
@@ -22,12 +23,29 @@ include_once('./Templates/main.php');
 </head>
 
 <body>
-    <section class="modal__section">
-        <form action="./modules/externalManagers/upload_file.php" method="POST">
+    <?php
+    if (isset($_POST['newFolder'])) {
+        if (!file_exists(ROOT_PATH . $_GET['path'] . '/' . $_POST['newFolder'])) {
+            mkdir(ROOT_PATH . $_GET['path'] . '/' . $_POST['newFolder']);
+        } else {
+            echo '<script type="text/javascript">
+            alert("Ya existe esa carpeta en ese directorio");
+            </script>';
+        }
+    }
+    ?>
+    <section class="modal__section hidden">
+        <form action="./modules/externalManagers/upload_file.php?path=<?php echo urlencode($_GET['path']) ?>" method="post" class="modal__form upload hidden" enctype="multipart/form-data">
+            <input type="hidden" name="MAX_FILE_SIZE" value="300000">
             <input type="file" name="uploader" multiple>
             <input type="submit" value="Upload">
         </form>
+        <form action="?path=<?php echo urlencode($_GET['path']) ?>" method="post" class="modal__form newFolder hidden" enctype="multipart/form-data">
+            <input value="<?php echo $_POST['newFolder'] ?>" type="text" name="newFolder" class="modal__inputText">
+            <input type="submit" value="Create">
+        </form>
     </section>
+
     <header class="menu__header">
         <button class="menu__folders">folders</button>
         <form action="?path=<?php echo urlencode($_GET['path']) ?>" method="POST">
@@ -43,9 +61,9 @@ include_once('./Templates/main.php');
         </section>
         <section class="actionSideBar__section">
             <ul class="actionList__ul">
-                <li class="actionList__li">New Folder</li>
+                <li class="actionList__li" id="newFolder">New Folder</li>
                 <li class="actionList__li">Trash</li>
-                <li class="actionList__li">Upload File</li>
+                <li class="actionList__li" id="upload">Upload File</li>
                 <li class="actionList__li">Disk Space</li>
             </ul>
         </section>
