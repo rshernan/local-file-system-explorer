@@ -1,12 +1,15 @@
 <?php
 
-function getNav()
-{
-    $rootFolder = new Folder(ROOT_PATH, true, false, true);
-    $rootFolder->setActiveFolder(ROOT_PATH . $_GET['path']);
+define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHPFileSystem/root_large');
 
-    return createNavItems($rootFolder->folders, false);
-}
+include_once('../Modules/Directory/Element.php');
+include_once('../Modules/Directory/File.php');
+include_once('../Modules/Directory/Folder.php');
+
+$currentFolder = new Folder(ROOT_PATH . $_GET['path'], false, 3);
+$currentFolder->setActiveFolder(ROOT_PATH . $_GET['path']);
+
+echo createNavItems($currentFolder->folders, false);
 
 function createNavItems(array $folders, $hidden)
 {
@@ -26,7 +29,7 @@ function createNavItem(Folder $folder)
             " unfoldable" : "")
         . "'>
         <div class='folderList__li--selector'>
-            <button class='folderList__button'></button>
+            <button class='folderList__button' data-path='".$folder->getRelativePath()."'></button>
             <a href='?path=" . urlencode($folder->getRelativePath()) . "' class='folderList--title'>" . $folder->getName() . "</a>
         </div>"
         . ($folder->folders ?
