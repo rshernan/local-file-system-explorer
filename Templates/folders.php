@@ -23,7 +23,7 @@ function createNavItem(Folder $folder)
 {
     return "
         <li class='folderList__li"
-        . (!$folder->folders ?
+        . (empty($folder->folders) ?
             " unfoldable" : "")
         . "'>
         <div class='folderList__li--selector'>
@@ -31,6 +31,8 @@ function createNavItem(Folder $folder)
             <a href='?path=" . urlencode($folder->getRelativePath()) . "' class='folderList--title'>" . $folder->getName() . "</a>
         </div>"
         .
-        createNavItems($folder->folders, true)
+        (!empty($folder->folders) ? 
+            createNavItems($folder->folders, true) :
+            "")
         . "</li>";
 }
