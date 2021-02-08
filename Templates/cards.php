@@ -1,7 +1,8 @@
 <?php
 
-define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHPFileSystem/root_large');
 
+
+include_once('../Modules/Constants/Constants.php.php');
 include_once('../Modules/Directory/Element.php');
 include_once('../Modules/Directory/File.php');
 include_once('../Modules/Directory/Folder.php');
@@ -15,7 +16,7 @@ echo createElementCards($elements);
 function createElementCards(array $elements)
 {
     $result = "";
-    foreach($elements as $element) {
+    foreach ($elements as $element) {
         $result .= createElementCard($element);
     }
     return $result;
@@ -24,7 +25,7 @@ function createElementCards(array $elements)
 function createElementCard(Element $element)
 {
     return "<div class='card__div'>
-        <p><a href='download.php?path=".urlencode($element->getServerPath())."' target='_blank'>download</a></p>
+        <p><a href='download.php?path=" . urlencode($element->getServerPath()) . "' target='_blank'>download</a></p>
         <a href='?path=" . $element->getRelativePath() . "' class='folderList--title'>
         " . $element->getImageElement() . "
         </a>

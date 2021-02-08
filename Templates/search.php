@@ -1,7 +1,6 @@
 <?php
 
-define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHPFileSystem/root_large');
-
+include_once('../Modules/Constants/Constants.php.php');
 include_once('../Modules/Directory/Element.php');
 include_once('../Modules/Directory/File.php');
 include_once('../Modules/Directory/Folder.php');
@@ -11,7 +10,7 @@ include_once('../Modules/Directory/Finder.php');
 
 $finder = new Finder(ROOT_PATH . $_GET['path']);
 
-echo count($finder->search("/".$_POST['search']."/"));
+echo count($finder->search("/" . $_POST['search'] . "/"));
 
 /*
 $elements = isset($_POST['search']) ?
@@ -25,7 +24,7 @@ $elements = isset($_POST['search']) ?
 function createElementCards(array $elements)
 {
     $result = "";
-    foreach($elements as $element) {
+    foreach ($elements as $element) {
         $result .= createElementCard($element);
     }
     return $result;

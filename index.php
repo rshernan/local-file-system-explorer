@@ -3,7 +3,6 @@
 
 include_once('./Modules/Constants/Constants.php');
 include_once('./Modules/Directory/Element.php');
-include_once('./Modules/Directory/Dir.php');
 include_once('./Modules/Directory/File.php');
 include_once('./Modules/Directory/Folder.php');
 ?>
@@ -47,7 +46,7 @@ include_once('./Modules/Directory/Folder.php');
     <header class="menu__header">
         <button class="menu__folders">folders</button>
         <form>
-            <input value="<?php echo $_POST['search'] ?>" type="text" name="search" id="searchBar" class="menu__searchBar">
+            <input value="<?php echo isset($_POST['search']) ? $_POST['search'] : "" ?>" type="text" name="search" id="searchBar" class="menu__searchBar">
         </form>
         <button class="menu__actions">actions</button>
     </header>

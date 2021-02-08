@@ -24,7 +24,7 @@ window.addEventListener("load",function(){
         inputTimeout = setTimeout(() => {
             var data = new FormData();
             data.append('search', this.value);
-            axios.post(`http://localhost/PHPFileSystem/Templates/search.php`, data, {
+            axios.post(`http://localhost/local-file-system-explorer/Templates/search.php`, data, {
                 params: {
                     path: this.dataset.path
                 },
@@ -69,7 +69,7 @@ function unfoldInnerList(parentList) {
     if(innerList.classList.contains('hidden')) {
         return;
     }
-    axios.get(`http://localhost/PHPFileSystem/Templates/folders.php`, {
+    axios.get(`http://localhost/local-file-system-explorer/Templates/folders.php`, {
         params: {
             path: this.dataset.path
         }

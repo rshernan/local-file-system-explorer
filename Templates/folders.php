@@ -1,7 +1,6 @@
 <?php
 
-define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHPFileSystem/root_large');
-
+include_once('../Modules/Constants/Constants.php.php');
 include_once('../Modules/Directory/Element.php');
 include_once('../Modules/Directory/File.php');
 include_once('../Modules/Directory/Folder.php');
@@ -29,7 +28,7 @@ function createNavItem(Folder $folder)
             " unfoldable" : "")
         . "'>
         <div class='folderList__li--selector'>
-            <button class='folderList__button' data-path='".$folder->getRelativePath()."'></button>
+            <button class='folderList__button' data-path='" . $folder->getRelativePath() . "'></button>
             <a href='?path=" . urlencode($folder->getRelativePath()) . "' class='folderList--title'>" . $folder->getName() . "</a>
         </div>"
         . ($folder->folders ?
