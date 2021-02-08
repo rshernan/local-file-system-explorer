@@ -22,6 +22,10 @@ window.addEventListener("load",function(){
     searchInput.addEventListener("input", function() {
         clearTimeout(inputTimeout)
         inputTimeout = setTimeout(() => {
+            if(!this.value) {
+                location.reload();
+                return;
+            }
             var data = new FormData();
             data.append('search', this.value);
             axios.post(`http://localhost/local-file-system-explorer/Templates/search.php`, data, {
@@ -33,21 +37,14 @@ window.addEventListener("load",function(){
                 }
             })
             .then(response => {
+                const fragment = document.createElement('div');
+                fragment.innerHTML = response.data;        
+                const $resultsSection = document.querySelector(".results__section");
+                $resultsSection.innerHTML = '';
+                $resultsSection.appendChild(fragment)
                 console.log(response.data);
             })
         }, 600)
-    })
-
-    const actionUpload = document.querySelector("#upload");
-    actionUpload.addEventListener("click", function(){
-        document.querySelector(".modal__section").classList.toggle("hidden");
-        document.querySelector(".upload").classList.toggle("hidden");
-    })
-
-    const actionNewFolder = document.querySelector("#newFolder");
-    actionNewFolder.addEventListener("click", function(){
-        document.querySelector(".modal__section").classList.toggle("hidden");
-        document.querySelector(".newFolder").classList.toggle("hidden");
     })
 
     const actionUpload = document.querySelector("#upload");

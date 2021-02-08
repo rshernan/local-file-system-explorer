@@ -1,13 +1,11 @@
 <?php
 
+require_once('./Modules/Constants/Constants.php');
+require_once('./Modules/Directory/Element.php');
+require_once('./Modules/Directory/File.php');
+require_once('./Modules/Directory/Folder.php');
 
-
-include_once('../Modules/Constants/Constants.php.php');
-include_once('../Modules/Directory/Element.php');
-include_once('../Modules/Directory/File.php');
-include_once('../Modules/Directory/Folder.php');
-
-$folder = new Folder(ROOT_PATH . $_GET['path'], true, 1);
+$folder = new Folder(ROOT_PATH . (isset($_GET['path']) ? $_GET['path'] : ""), true, 1);
 
 $elements = array_merge($folder->folders, $folder->files);
 

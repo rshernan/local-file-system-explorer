@@ -1,12 +1,11 @@
 <?php
 
-include_once('../Modules/Constants/Constants.php.php');
-include_once('../Modules/Directory/Element.php');
-include_once('../Modules/Directory/File.php');
-include_once('../Modules/Directory/Folder.php');
+require_once('./Modules/Constants/Constants.php');
+require_once('./Modules/Directory/Element.php');
+require_once('./Modules/Directory/File.php');
+require_once('./Modules/Directory/Folder.php');
 
-$currentFolder = new Folder(ROOT_PATH . $_GET['path'], false, 3);
-$currentFolder->setActiveFolder(ROOT_PATH . $_GET['path']);
+$currentFolder = new Folder(ROOT_PATH . (isset($_GET['path']) ? $_GET['path'] : ""), false, 3);
 
 echo createNavItems($currentFolder->folders, false);
 
@@ -31,7 +30,7 @@ function createNavItem(Folder $folder)
             <button class='folderList__button' data-path='" . $folder->getRelativePath() . "'></button>
             <a href='?path=" . urlencode($folder->getRelativePath()) . "' class='folderList--title'>" . $folder->getName() . "</a>
         </div>"
-        . ($folder->folders ?
-            createNavItems($folder->folders, !$folder->active || isset($_POST['search'])) : "")
+        .
+        createNavItems($folder->folders, true)
         . "</li>";
 }
