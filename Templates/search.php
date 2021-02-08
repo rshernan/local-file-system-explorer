@@ -1,26 +1,14 @@
 <?php
 
-define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/PHPFileSystem/root_large');
-
+include_once('../Modules/Constants/Constants.php');
 include_once('../Modules/Directory/Element.php');
 include_once('../Modules/Directory/File.php');
 include_once('../Modules/Directory/Folder.php');
 include_once('../Modules/Directory/Finder.php');
 
-//$folder = new Folder(ROOT_PATH . $_GET['path'], true, isset($_POST['search']) ? -1 : 1);
-
 $finder = new Finder(ROOT_PATH . $_GET['path']);
 
-echo count($finder->search("/".$_POST['search']."/"));
-
-/*
-$elements = isset($_POST['search']) ?
-    $folder->search("/".$_POST['search']."/") :
-    array_merge($folder->folders, $folder->files);
-*/
-
-//echo createElementCards($elements);
-
+echo createElementCards($finder->search("/".$_POST['search']."/"));
 
 function createElementCards(array $elements)
 {
@@ -34,6 +22,7 @@ function createElementCards(array $elements)
 function createElementCard(Element $element)
 {
     return "<div class='card__div'>
+        <p><a href='download.php?path=".urlencode($element->getServerPath())."' target='_blank'>download</a></p>
         <a href='?path=" . $element->getRelativePath() . "' class='folderList--title'>
         " . $element->getImageElement() . "
         </a>

@@ -22,9 +22,13 @@ window.addEventListener("load",function(){
     searchInput.addEventListener("input", function() {
         clearTimeout(inputTimeout)
         inputTimeout = setTimeout(() => {
+            if(!this.value) {
+                location.reload();
+                return;
+            }
             var data = new FormData();
             data.append('search', this.value);
-            axios.post(`http://localhost/PHPFileSystem/Templates/search.php`, data, {
+            axios.post(`http://localhost/local-file-system-explorer/Templates/search.php`, data, {
                 params: {
                     path: this.dataset.path
                 },
@@ -33,6 +37,11 @@ window.addEventListener("load",function(){
                 }
             })
             .then(response => {
+                const fragment = document.createElement('div');
+                fragment.innerHTML = response.data;        
+                const $resultsSection = document.querySelector(".results__section");
+                $resultsSection.innerHTML = '';
+                $resultsSection.appendChild(fragment)
                 console.log(response.data);
             })
         }, 600)
@@ -57,7 +66,7 @@ function unfoldInnerList(parentList) {
     if(innerList.classList.contains('hidden')) {
         return;
     }
-    axios.get(`http://localhost/PHPFileSystem/Templates/folders.php`, {
+    axios.get(`http://localhost/local-file-system-explorer/Templates/folders.php`, {
         params: {
             path: this.dataset.path
         }
