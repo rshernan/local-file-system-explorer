@@ -2,11 +2,12 @@
 
 class File extends Element
 {
-    public function getSize() {
-        
+    public function getSize()
+    {
     }
 
-    public function download() {
+    public function download()
+    {
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header("Cache-Control: no-cache, must-revalidate");
