@@ -68,7 +68,8 @@ function unfoldInnerList(parentList) {
     }
     axios.get(`http://localhost/local-file-system-explorer/Templates/folders.php`, {
         params: {
-            path: this.dataset.path
+            path: this.dataset.path,
+            upLevel: false
         }
     })
     .then(response => {
