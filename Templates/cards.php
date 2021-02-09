@@ -37,15 +37,15 @@ function createElementCard(Element $element)
                 break;
             }
         case "file": {
-                return createFileCard("showFileInfoModal('file', " . $element->toJson() . ")", $element);
+                return createFileCard("showFileInfoModal('file'," . $element->toJson() . ")", $element);
                 break;
             }
         case "video": {
-                return createFileCard("showFileInfoModal('video',  " . $element->toJson() . ")", $element);
+                return createFileCard("showFileInfoModal('video'," . $element->toJson() . ")", $element);
                 break;
             }
         case "audio": {
-                return createFileCard("showFileInfoModal('audio',  " . $element->toJson() . ")", $element);
+                return createFileCard("showFileInfoModal('audio'," . $element->toJson() . ")", $element);
                 break;
             }
         case "image": {

@@ -84,7 +84,11 @@ window.addEventListener("load",function(){
     modalInfo.addEventListener("click", function(e){
         if(e.target.className == "modalInfo__section"){
             modalInfo.classList.toggle("hidden");
-            modalInfo.children[0].classList.toggle("hidden")
+            Array.from(modalInfo.children).forEach(function(element){
+                if(!element.classList.contains("hidden")){
+                    element.classList.toggle("hidden")
+                }
+            })
         }
     })
 });
@@ -120,8 +124,8 @@ function showFileInfoModal(type, jsonObject){
     document.querySelector(".modalInfo__section").classList.toggle("hidden");
     switch(type){
         case "audio":
-            container.innerHTML = "";
             container = document.querySelector(".modalInfo__audio");
+            container.innerHTML = "";
             let audioTitle = document.createElement("p")
             audioTitle.innerText=jsonObject.name;
             let audio = document.createElement("audio");
@@ -133,8 +137,8 @@ function showFileInfoModal(type, jsonObject){
             container.classList.toggle("hidden");
             break;
         case "video":
-            container.innerHTML = "";
             container = document.querySelector(".modalInfo__video");
+            container.innerHTML = "";
             let videoTitle = document.createElement("p")
             videoTitle.innerText=jsonObject.name;
             let video = document.createElement("video");
@@ -146,8 +150,8 @@ function showFileInfoModal(type, jsonObject){
             container.classList.toggle("hidden");
             break;
         case "image":
-            container.innerHTML = "";
             container = document.querySelector(".modalInfo__image");
+            container.innerHTML = "";
             let imageTitle = document.createElement("p")
             imageTitle.innerText=jsonObject.name;
             let image = document.createElement("img");

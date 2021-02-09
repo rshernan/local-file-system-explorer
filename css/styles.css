@@ -90,8 +90,20 @@ main {
 	box-shadow: inset 0 0 5px 5px #999;
 	background-color: white;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.modalInfo__video p{
+	font-size: 18px;
+	padding: 5px;
+}
+
+.modalInfo__video img{
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
 }
 
 .modalInfo__image{
@@ -123,9 +135,23 @@ main {
 	box-shadow: inset 0 0 5px 5px #999;
 	background-color: white;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
+
+.modalInfo__audio p{
+	font-size: 18px;
+	padding: 5px;
+}
+
+.modalInfo__aduio img{
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+
 
 main {
 	display: flex;
