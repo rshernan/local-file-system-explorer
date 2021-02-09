@@ -50,18 +50,47 @@ window.addEventListener("load",function(){
     const actionUpload = document.querySelector("#upload");
     actionUpload.addEventListener("click", function(){
         document.querySelector(".modal__section").classList.toggle("hidden");
-        document.querySelector(".upload").classList.toggle("hidden");
+        if(document.querySelector(".upload").classList.contains("toggle")){
+            document.querySelector(".upload").classList.toggle("hidden");
+        }
+
+        const modalUpload = document.querySelector(".modal__section");
+        modalUpload.addEventListener("click", function(e){
+            if(e.target.className == "modal__section"){
+                modalUpload.classList.toggle("hidden");
+                document.querySelector(".upload").classList.toggle("hidden");
+            }
+        })
+
     })
 
     const actionNewFolder = document.querySelector("#newFolder");
     actionNewFolder.addEventListener("click", function(){
         document.querySelector(".modal__section").classList.toggle("hidden");
-        document.querySelector(".newFolder").classList.toggle("hidden");
+        if(document.querySelector(".newFolder").classList.contains("toggle")){
+            document.querySelector(".newFolder").classList.toggle("hidden");
+        }
+
+        const modalFolder = document.querySelector(".modal__section");
+        modalFolder.addEventListener("click", function(e){
+            if(e.target.className == "modal__section"){
+                modalFolder.classList.toggle("hidden");
+                document.querySelector(".newFolder").classList.toggle("hidden")
+            }
+        })
+    })
+
+    const modalInfo = document.querySelector(".modalInfo__section");
+    modalInfo.addEventListener("click", function(e){
+        if(e.target.className == "modalInfo__section"){
+            modalInfo.classList.toggle("hidden");
+            modalInfo.children[0].classList.toggle("hidden")
+        }
     })
 });
 
 function unfoldInnerList(parentList) {
-    const innerList = parentList.querySelector(".folderList__ul");    
+    const innerList = parentList.querySelector(".folderList__ul");
     innerList.classList.toggle('hidden');
     if(innerList.classList.contains('hidden')) {
         return;
@@ -86,7 +115,6 @@ function unfoldInnerList(parentList) {
 }
 
 function showFileInfoModal(type, jsonObject){
-    console.log(type);
     let container="";
     document.querySelector(".modalInfo__section").classList.toggle("hidden");
     switch(type){
@@ -130,4 +158,6 @@ function showFileInfoModal(type, jsonObject){
             break;
     }
 }
+
+
 

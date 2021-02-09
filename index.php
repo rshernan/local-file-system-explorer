@@ -31,7 +31,7 @@ require_once('./Modules/Directory/Folder.php');
     }
     ?>
     <section class="modal__section hidden">
-        <form action="./modules/externalManagers/upload_file.php?path=<?php echo (isset($_GET['path']) ? urlencode($_GET['path']) : "") ?>" method="post" class="modal__form upload hidden" enctype="multipart/form-data">
+        <form action="./Modules/externalManagers/upload_file.php?path=<?php echo (isset($_GET['path']) ? urlencode($_GET['path']) : "") ?>" method="post" class="modal__form upload hidden" enctype="multipart/form-data">
             <input type="hidden" name="MAX_FILE_SIZE" value="300000">
             <input type="file" name="uploader" multiple>
             <input type="submit" value="Upload">

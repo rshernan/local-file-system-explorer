@@ -79,18 +79,18 @@ abstract class Element
 
     private function toArray()
     {
+        $urlExploded = explode("%2F", urlencode($this->getServerPath()));
+        $pathToObject = implode("%2F", array_splice($urlExploded, 2));
         return [
             'name' => $this->getName(),
             'type' => $this->getType(),
-            'path' => implode("%2F", array_splice(explode("%2F", urlencode($this->getServerPath())), 2)),
+            'path' => $pathToObject,
             'mimeType' => $this->getMimeType(),
         ];
     }
 
     public function toJson()
     {
-        print_r($this->toArray());
-        print_r(json_encode($this->toArray()));
         return json_encode($this->toArray());
     }
 }
