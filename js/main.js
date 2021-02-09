@@ -85,4 +85,49 @@ function unfoldInnerList(parentList) {
     })
 }
 
+function showFileInfoModal(type, jsonObject){
+    console.log(type);
+    let container="";
+    document.querySelector(".modalInfo__section").classList.toggle("hidden");
+    switch(type){
+        case "audio":
+            container.innerHTML = "";
+            container = document.querySelector(".modalInfo__audio");
+            let audioTitle = document.createElement("p")
+            audioTitle.innerText=jsonObject.name;
+            let audio = document.createElement("audio");
+            audio.controls = "controls";
+            audio.src = "./"+(jsonObject.path.replaceAll("+", " "));
+            audio.type = jsonObject.mimeType;
+            container.appendChild(audioTitle);
+            container.appendChild(audio);
+            container.classList.toggle("hidden");
+            break;
+        case "video":
+            container.innerHTML = "";
+            container = document.querySelector(".modalInfo__video");
+            let videoTitle = document.createElement("p")
+            videoTitle.innerText=jsonObject.name;
+            let video = document.createElement("video");
+            video.controls = "controls";
+            video.src = "./"+(jsonObject.path.replaceAll("+", " "));
+            video.type = jsonObject.mimeType;
+            container.appendChild(videoTitle);
+            container.appendChild(video);
+            container.classList.toggle("hidden");
+            break;
+        case "image":
+            container.innerHTML = "";
+            container = document.querySelector(".modalInfo__image");
+            let imageTitle = document.createElement("p")
+            imageTitle.innerText=jsonObject.name;
+            let image = document.createElement("img");
+            image.src = "./"+(jsonObject.path.replaceAll("+", " "));
+            image.alt = jsonObject.name;
+            container.appendChild(imageTitle);
+            container.appendChild(image);
+            container.classList.toggle("hidden");
+            break;
+    }
+}
 

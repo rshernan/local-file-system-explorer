@@ -41,6 +41,14 @@ require_once('./Modules/Directory/Folder.php');
             <input type="submit" value="Create">
         </form>
     </section>
+    <section class="modalInfo__section hidden">
+        <div class="modalInfo__image hidden">
+        </div>
+        <div class="modalInfo__audio hidden">
+        </div>
+        <div class="modalInfo__video hidden">
+        </div>
+    </section>
 
     <header class="menu__header">
         <button class="menu__folders">folders</button>
