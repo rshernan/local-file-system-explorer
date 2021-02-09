@@ -95,8 +95,6 @@ abstract class Element
 
     public function toJson()
     {
-        print_r($this->toArray());
-        print_r(json_encode($this->toArray()));
         return json_encode($this->toArray());
     }
 }
