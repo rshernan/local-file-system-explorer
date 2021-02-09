@@ -8,19 +8,23 @@ abstract class Element
         $this->path = $path;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return basename($this->path);
     }
 
-    public function getParentPath() {
+    public function getParentPath()
+    {
         return dirname($this->path);
     }
 
-    public function getRelativePath() {
+    public function getRelativePath()
+    {
         return str_replace(ROOT_PATH, "", $this->path);
     }
 
-    public function getServerPath() {
+    public function getServerPath()
+    {
         return str_replace($_SERVER["DOCUMENT_ROOT"], "", $this->path);
     }
 
@@ -29,22 +33,31 @@ abstract class Element
         return date('l jS \of F Y h:i:s A', filectime($this->path));
     }
 
-    public function getType() {
+    public function getType()
+    {
         return filetype($this->path);
     }
 
-    public function print() {
+    public function print()
+    {
         echo "Element $this->name";
     }
 
-    public function getImageElement() {
-        switch($this->getType()) {
+    public function getImageElement()
+    {
+        $imageUrl = './images/file.png';
+        switch ($this->getType()) {
             case 'dir': {
-                return "<img src='./images/folder.png' alt='folder' class='card__img'>";
-            }
+                    $imageUrl = './images/folder.png';
+                    break;
+                }
             default: {
-                return "<img src='./images/file.png' alt='file' class='card__img'>";
-            }
+                    $extension = pathinfo($this->path)['extension'];
+                    $imageUrl = $extension ? 
+                        "./images/svg/$extension.svg" : 
+                        './images/file.png';
+                }
         }
+        return "<img src='$imageUrl' alt='element image' class='card__img'>";
     }
 }
