@@ -67,14 +67,20 @@ abstract class Element
 
     public function getImageElement()
     {
+        $imageUrl = './images/file.png';
         switch ($this->getType()) {
             case 'dir': {
-                    return "<img src='./images/folder.png' alt='folder' class='card__img'>";
+                    $imageUrl = './images/folder.png';
+                    break;
                 }
             default: {
-                    return "<img src='./images/file.png' alt='file' class='card__img'>";
+                    $extension = pathinfo($this->path)['extension'];
+                    $imageUrl = $extension ? 
+                        "./images/svg/$extension.svg" : 
+                        './images/file.png';
                 }
         }
+        return "<img src='$imageUrl' alt='element image' class='card__img'>";
     }
 
     private function toArray()

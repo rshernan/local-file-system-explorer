@@ -38,6 +38,9 @@
 }
 
 .menu__header {
+	position: fixed;
+	background-color: white;
+	top: 0;
 	height: 80px;
 	width: 100%;
 	display: flex;
@@ -65,8 +68,13 @@
 	height: 50px;
 }
 
+main {
+	margin-top: 100px;
+}
+
 .modalInfo__section{
 	position: fixed;
+	top: 0;
     display: flex;
 	width: 100vw;
 	height: 100vh;
